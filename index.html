@@ -87,20 +87,66 @@
         <p>You will receive approximately <span class="highlight">5-15 messages per trading day</span> during market hours (6:25 AM - 1:30 PM Pacific Time, Monday-Friday). No messages are sent during weekends or market holidays.</p>
         
         <div class="consent-box">
-            <h2>SMS Consent Agreement</h2>
-            <p><strong>By using this service, you explicitly consent to receive SMS text messages</strong> from Christopher Rogers Investment Services regarding your investment portfolio monitoring.</p>
+            <h2>SMS Consent Registration</h2>
+            <p><strong>To receive SMS notifications, please provide your consent below:</strong></p>
             
-            <p>You understand that:</p>
-            <ul>
-                <li>Messages will be sent to the phone number you provided</li>
-                <li>Message and data rates may apply according to your mobile plan</li>
-                <li>This is an automated service for personal portfolio monitoring</li>
-                <li>No marketing or promotional messages will be sent</li>
-                <li>You can opt out at any time using the methods below</li>
-            </ul>
+            <form action="mailto:rogers.cj@gmail.com" method="post" enctype="text/plain" id="consentForm">
+                <div style="margin-bottom: 15px;">
+                    <label for="phone" style="display: block; margin-bottom: 5px; font-weight: bold;">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required 
+                           style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;"
+                           placeholder="(555) 123-4567">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label for="name" style="display: block; margin-bottom: 5px; font-weight: bold;">Full Name:</label>
+                    <input type="text" id="name" name="name" required 
+                           style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;"
+                           placeholder="Your full name">
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="display: flex; align-items: flex-start;">
+                        <input type="checkbox" id="consent" name="consent" required 
+                               style="margin-right: 10px; margin-top: 4px;">
+                        <span><strong>I explicitly consent to receive SMS text messages</strong> from Christopher Rogers Investment Services regarding portfolio monitoring. I understand that:</span>
+                    </label>
+                    <ul style="margin-left: 30px; margin-top: 10px;">
+                        <li>Messages will be sent to the phone number I provided above</li>
+                        <li>I will receive approximately 5-15 messages per trading day</li>
+                        <li>Message and data rates may apply according to my mobile plan</li>
+                        <li>This is an automated service for personal portfolio monitoring</li>
+                        <li>No marketing or promotional messages will be sent</li>
+                        <li>I can opt out at any time by replying "STOP" to any message</li>
+                        <li>Consent is voluntary and I may withdraw it at any time</li>
+                    </ul>
+                </div>
+                
+                <button type="submit" 
+                        style="background-color: #27ae60; color: white; padding: 12px 24px; 
+                               border: none; border-radius: 4px; font-size: 16px; cursor: pointer;
+                               width: 100%;">
+                    Submit SMS Consent
+                </button>
+            </form>
             
-            <p><strong>Consent is voluntary</strong> and you may withdraw consent at any time.</p>
+            <div id="confirmation" style="display: none; background-color: #d4edda; 
+                                          border: 1px solid #c3e6cb; padding: 15px; 
+                                          border-radius: 4px; margin-top: 15px;">
+                <p><strong>✓ Consent Submitted Successfully</strong></p>
+                <p>Your consent has been recorded and will be processed within 24 hours. 
+                   You will begin receiving SMS notifications during the next trading session.</p>
+            </div>
         </div>
+        
+        <script>
+            document.getElementById('consentForm').addEventListener('submit', function(e) {
+                setTimeout(function() {
+                    document.getElementById('confirmation').style.display = 'block';
+                    document.getElementById('consentForm').style.display = 'none';
+                }, 100);
+            });
+        </script>
         
         <div class="opt-out-box">
             <h2>How to Opt Out (Unsubscribe)</h2>
